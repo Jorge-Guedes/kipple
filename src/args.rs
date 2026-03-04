@@ -13,6 +13,9 @@ pub struct Args {
     #[arg(long)]
     dry_run: bool,
 
-    #[arg(short, long)]
-    include_dirs: bool,
+    #[arg(long)]
+    pub include_dirs: bool,
+
+    #[arg(short, long, help = "Show detailed progress messages")]
+    pub verbose: bool,
 }
