@@ -100,6 +100,7 @@ fn process_file(path: &PathBuf, categories: &mut FileCategories, verbose: bool) 
                 );
                 separator();
             }
+            categories.others.push(path.clone());
         }
     } else {
         if verbose {
@@ -110,6 +111,7 @@ fn process_file(path: &PathBuf, categories: &mut FileCategories, verbose: bool) 
             );
             separator();
         }
+        categories.others.push(path.clone());
     }
 }
 
