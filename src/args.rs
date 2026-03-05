@@ -11,7 +11,7 @@ pub struct Args {
     pub directory: Option<String>,
 
     #[arg(long)]
-    dry_run: bool,
+    pub dry_run: bool,
 
     #[arg(long)]
     pub include_dirs: bool,

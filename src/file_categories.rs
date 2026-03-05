@@ -22,4 +22,14 @@ impl FileCategories {
             others: Vec::new(),
         }
     }
+
+    pub fn is_empty(&self) -> bool {
+        self.documents.is_empty()
+            && self.pictures.is_empty()
+            && self.videos.is_empty()
+            && self.music.is_empty()
+            && self.archives.is_empty()
+            && self.code_files.is_empty()
+            && self.others.is_empty()
+    }
 }
