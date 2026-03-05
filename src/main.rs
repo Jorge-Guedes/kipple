@@ -1,13 +1,8 @@
-mod args;
-mod file_categories;
-mod organizer;
-mod utils;
-
-use args::Args;
 use clap::Parser;
 use colored::Colorize;
-use organizer::{classify_file, organize_files, preview_organization};
-use utils::{get_organization_directory, separator};
+use kipple::args::Args;
+use kipple::organizer::{classify_file, organize_files, preview_organization};
+use kipple::utils::{get_organization_directory, separator};
 
 fn main() {
     let args = Args::parse();
@@ -44,7 +39,7 @@ fn main() {
     if args.dry_run {
         preview_organization(&classified_files);
     } else {
-        organize_files(&classified_files, &selected_dir, args.verbose);
+        organize_files(&classified_files, &selected_dir, args.force, args.verbose);
         println!(
             "{} {} {}",
             "SUCCESS:".green().bold(),

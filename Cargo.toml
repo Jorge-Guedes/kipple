@@ -1,8 +1,14 @@
 [package]
 name = "kipple"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
+authors = ["Jorge Guedes"]
+description = "A file organizer that sorts files by extension into categorized folders"
+license = "MIT"
 
 [dependencies]
 clap = { version = "4.5.60", features = ["derive"] }
 colored = "3.1.1"
+
+[dev-dependencies]
+tempfile = "3.26.0"
