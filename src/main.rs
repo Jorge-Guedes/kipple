@@ -44,7 +44,7 @@ fn main() {
     if args.dry_run {
         preview_organization(&classified_files);
     } else {
-        organize_files(&classified_files, &selected_dir, args.verbose);
+        organize_files(&classified_files, &selected_dir, args.force, args.verbose);
         println!(
             "{} {} {}",
             "SUCCESS:".green().bold(),

@@ -196,7 +196,7 @@ fn get_unique_destination(destination: &PathBuf, verbose: bool) -> PathBuf {
     }
 }
 
-pub fn organize_files(files: &FileCategories, dir: &PathBuf, verbose: bool) {
+pub fn organize_files(files: &FileCategories, dir: &PathBuf, force: bool, verbose: bool) {
     let categories: [(&str, &Vec<PathBuf>); 7] = [
         ("Pictures", &files.pictures),
         ("Documents", &files.documents),
@@ -222,7 +222,19 @@ pub fn organize_files(files: &FileCategories, dir: &PathBuf, verbose: bool) {
             for item in *items {
                 if let Some(name) = item.file_name() {
                     let destination = category_dir.join(name);
-                    let final_destination = get_unique_destination(&destination, verbose);
+                    let final_destination = if force {
+                        if verbose {
+                            println!(
+                                "{} {} {}",
+                                "FORCE:".red().bold(),
+                                "Overwriting".white(),
+                                destination.display()
+                            );
+                        }
+                        destination
+                    } else {
+                        get_unique_destination(&destination, verbose)
+                    };
                     if let Err(e) = std::fs::rename(item, &final_destination) {
                         eprintln!(
                             "{} {}",
