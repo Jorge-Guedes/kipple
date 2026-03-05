@@ -42,17 +42,34 @@ cargo build --release
 cp target/release/kipple ~/.local/bin/  # or /usr/local/bin/ with sudo
 ```
 
-### Windows Binary Installation
-
-```bash
-# Windows (after compiling)
-copy target\release\kipple.exe %USERPROFILE%\bin\
-```
-
 ### Using Cargo
 ```bash
 cargo install --git https://github.com/Jorge-Guedes/kipple.git
 ```
+
+### Windows Binary Installation
+
+**Step 1: Download the program**
+- Go to the "Releases" page of the Kipple repository on GitHub
+- Look for the file named `kipple.exe` and download it
+
+**Step 2: Save the program in a folder**
+- Create a folder where you want to keep your programs, for example: `C:\kipple`
+- Copy the downloaded `kipple.exe` file into that folder
+
+**Step 3: Add the folder to PATH (to use it from anywhere)**
+- Open the Start menu and type "Edit the system environment variables"
+- Click on the result that appears
+- In the window that opens, click the "Environment Variables" button
+- In the "User variables" or "System variables" section (whichever you prefer), look for the variable named `Path` and click "Edit"
+- In the new window, click "New" and then "Browse"
+- Navigate to the folder where you saved `kipple.exe` (for example, `C:\kipple`) and select the folder
+- Click "OK" on all windows to save the changes
+
+**Step 4: Test that it works**
+- Open a new terminal (PowerShell or Command Prompt)
+- Type `kipple --version`
+- If you see the version number, everything is ready. You can now use `kipple` from any folder
 
 ## 🚀 Usage
 
