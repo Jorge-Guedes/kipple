@@ -7,8 +7,11 @@ description = "A file organizer that sorts files by extension into categorized f
 license = "MIT"
 
 [dependencies]
+anyhow = "1.0.102"
 clap = { version = "4.5.60", features = ["derive"] }
 colored = "3.1.1"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_yaml = "0.9.34"
 
 [dev-dependencies]
 tempfile = "3.26.0"

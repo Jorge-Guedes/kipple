@@ -1,11 +1,31 @@
 use clap::Parser;
 use colored::Colorize;
 use kipple::args::Args;
+use kipple::config::get_config_path;
 use kipple::organizer::{classify_file, organize_files, preview_organization};
 use kipple::utils::{get_organization_directory, separator};
 
 fn main() {
     let args = Args::parse();
+
+    if true {
+        // Modo pruebas - SOLO para probar el config
+        let config_path = match &args.config {
+            Some(path) => match get_config_path(path) {
+                Some(p) => p,
+                None => {
+                    println!("ERROR: Config file not found");
+                    return;
+                }
+            },
+            None => {
+                println!("No config file specified");
+                return;
+            }
+        };
+        println!("RUTA: {:?}", config_path);
+        return;
+    }
 
     let Some(selected_dir) = get_organization_directory(&args.directory) else {
         eprintln!(

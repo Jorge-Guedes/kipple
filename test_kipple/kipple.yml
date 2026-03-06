@@ -1,0 +1,17 @@
+rules:
+  - name: "Emuladores"
+    folder: "ROMs"
+    subrules:
+      - name: "Nintendo"
+        folder: "Nintendo"
+        subrules:
+          - name: "NES"
+            extensions: ["nes"]
+            folder: "NES"
+  
+  - name: "Vacaciones"
+    folder: "Vacaciones"
+    subrules:
+      - name: "Fotos"
+        extensions: ["jpg", "png"]
+        folder: "Fotos"

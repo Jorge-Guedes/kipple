@@ -11,7 +11,8 @@ use clap::Parser;
               kipple -d ~/Downloads       # organize Downloads folder\n  \
               kipple --dry-run -v         # preview with details\n  \
               kipple --include-dirs       # also process subdirectories\n  \
-              kipple --force              # overwrite existing files"
+              kipple --force              # overwrite existing files\n  \
+              kipple --config myrules.yml # use custom config file"
 )]
 pub struct Args {
     #[arg(short, long, help = "Target directory (defaults to current directory)")]
@@ -31,6 +32,9 @@ pub struct Args {
         help = "Overwrite existing files instead of creating numbered copies (e.g., file(1).txt)"
     )]
     pub force: bool,
+
+    #[arg(short, long, help = "Path to config file")]
+    pub config: Option<String>,
 
     #[arg(
         short,
